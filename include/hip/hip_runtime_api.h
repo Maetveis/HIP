@@ -1980,6 +1980,19 @@ hipError_t hipStreamSynchronize(hipStream_t stream);
  * @see hipStreamCreate, hipStreamCreateWithFlags, hipStreamCreateWithPriority, hipStreamSynchronize, hipStreamDestroy
  */
 hipError_t hipStreamWaitEvent(hipStream_t stream, hipEvent_t event, unsigned int flags);
+
+/**
+ * @brief Get the handle of the context associated with a stream
+ *
+ * @param [in] stream
+ * @param [out] ctx
+ *
+ * @returns #hipSuccess, #hipErrorInvalidValue, #hipErrorInvalidHandle
+ *
+ * @see hipCtxSetCurrent, hipCtxPopCurrent, hipCtxGetDevice
+ */
+hipError_t hipStreamGetCtx(hipStream_t stream, hipCtx_t* ctx);
+
 /**
  * @brief Return flags associated with this stream.
  *
